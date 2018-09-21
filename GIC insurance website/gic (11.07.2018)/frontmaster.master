@@ -1,0 +1,239 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="frontmaster.master.cs" Inherits="frontmaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>GIC || Insurance</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Softnio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="image/favicon.png" type="image/png" sizes="16x16" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.bundle.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="site-body style-v1">
+
+    <!-- Header -->
+    <header class="site-header header-s1 is-sticky">
+        <!-- Topbar -->
+        <div class="topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="top-aside top-left clearfix">
+                        <ul class="social clearfix hidden-xs">
+                            <li><a href="#" class="fa fa-facebook"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="#" class="fa fa-google-plus"></a></li>
+                            <li><a href="#" class="fa fa-linkedin"></a></li>
+                        </ul>
+                    </div>
+                    <div class="top-aside top-right clearfix">
+                        <ul class="top-contact clearfix">
+                            <li class="t-phone t-phone1">
+                                <em class="fa fa-envelope" aria-hidden="true"></em>
+                                <span><a href="#">
+                                    <asp:Label ID="lblemail2" runat="server" Text="E-Mail"></asp:Label></a></span>
+                            </li>
+                            <li class="t-phone t-phone1">
+                                <em class="fa fa-phone" aria-hidden="true"></em>
+                                <span><a href="#">
+                                    <asp:Label ID="lblphone" runat="server" Text="Phone No."></asp:Label></a></span>
+                            </li>
+                            <li class="quote-btn">
+                                <a href="contact-us.aspx" class="btn">Get A Quote</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #end Topbar -->
+        <!-- Navbar -->
+        <div class="navbar navbar-primary">
+            <div class="container">
+
+
+                <!-- Logo -->
+                <asp:Repeater ID="Rptlogoheader" runat="server">
+                    <ItemTemplate>
+                        <a class="navbar-brand" href="Default.aspx">
+                            <img class="logo logo-dark" alt="" src="<%# ResolveUrl(Eval("content").ToString()) %>" />
+                            <!--<img class="logo logo-dark" alt="" src="image/MUKU.png" srcset="image/logo2x.png 2x">-->
+                        </a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <!-- #end Logo -->
+
+
+
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainnav"
+                        aria-expanded="false">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Q-Button for Mobile -->
+                    <div class="quote-btn"><a class="btn" href="contact.html"><span>Get A Quote</span></a></div>
+                </div>
+                <!-- MainNav -->
+                <nav class="navbar-collapse collapse" id="mainnav">
+                    <ul class="nav navbar-nav">
+                        <li><a href="Default.aspx">Home</a></li>
+                        <li><a href="about-us.aspx">About Us </a></li>
+                        <li>
+                            <a href="#">Services <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <asp:Repeater ID="Rptservices" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href="insurance-details.aspx?service-name=<%#Eval("service_name") %>"><%# Eval("service_name") %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>                              
+                            </ul>
+                        </li>
+                        <li><a href="awards.aspx">Awards & Recognition</a></li>
+                        <li><a href="testimonial.aspx">Testimonials</a></li>
+                        <li><a href="contact-us.aspx">Contact</a></li>
+                    </ul>
+                </nav>
+                <!-- #end MainNav -->
+            </div>
+        </div>
+        <!-- #end Navbar -->
+    </header>
+
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+    <!-- Call Action -->
+    <div class="call-action bg-primary">
+        <div class="cta-block">
+            <div class="container">
+                <div class="content row">
+                    <div class="cta-sameline">
+                        <h3>Commercial Insurance / Personal Insurance</h3>
+                        <p>Don't wait until it's too late. Contact for all of your personal and commercial insurance.</p>
+                        <a class="btn btn-outline" href="contact-us.aspx">Get A Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Section -->
+    <!-- Footer Widget-->
+    <div class="footer-widget section-pad-md">
+        <div class="container">
+            <div class="row">
+                <div class="widget-row row">
+                    <div class="footer-col col-md-3 col-sm-6 res-m-bttm">
+                        <!-- Each Widget -->
+                        <div class="wgs wgs-footer wgs-menu">
+                            <h5 class="wgs-title">About Us</h5>
+                            <div class="wgs-content">
+                                <p style="text-align: justify;">
+                                    <asp:Label ID="lblftrabt" runat="server" Text="Label"></asp:Label>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- End Widget -->
+                    </div>
+                    <div class="footer-col col-md-2 col-sm-6 res-m-bttm">
+                        <!-- Each Widget -->
+                        <div class="wgs wgs-footer wgs-menu">
+                            <h5 class="wgs-title">Quick Links</h5>
+                            <div class="wgs-content">
+                                <ul class="menu">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="awards.html">Awards & Recognition</a></li>
+                                    <li><a href="testimonial.html">Testimonial</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Widget -->
+                    </div>
+                    <div class="footer-col col-md-3 col-sm-6 res-m-bttm">
+                        <!-- Each Widget -->
+                        <div class="wgs wgs-footer wgs-menu">
+                            <h5 class="wgs-title">Our Services</h5>
+                            <div class="wgs-content">
+                                <ul class="menu">
+                                    <asp:Repeater ID="rptserviceftr" runat="server">
+                                    <ItemTemplate>
+                                        <li><a href="insurance-details.aspx?service-name=<%#Eval("service_name") %>"><%# Eval("service_name") %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>     
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Widget -->
+                    </div>
+                    <div class="footer-col col-md-4 col-sm-6">
+                        <!-- Each Widget -->
+                        <div class="wgs wgs-footer">
+                            <div class="wgs-content">
+                                <div class="footer-logo">
+                                    <asp:Repeater ID="Rptlogofooter" runat="server">
+                                        <ItemTemplate>
+                                            <img src="<%# ResolveUrl(Eval("content").ToString()) %>" alt="footer Logo">
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
+                                <ul class="contact-info">
+                                    <li>
+                                        <i class="fa fa-home"></i><span>&nbsp;
+                                            <asp:Label ID="lbladdress" runat="server" Text="address"></asp:Label></span>
+                                    </li>
+                                    <li><i class="fa fa-phone"></i><span>&nbsp;
+                                        <asp:Label ID="lblphnoe" runat="server" Text="phone no."></asp:Label></span></li>
+                                    <li><i class="fa fa-whatsapp"></i><span>&nbsp;<asp:Label ID="lblwhatsappno" runat="server" Text="email"></asp:Label></span></li>
+                                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i><span>&nbsp;<asp:Label ID="lblemail" runat="server" Text="email"></asp:Label></span></li>
+                                </ul>
+                                <ul class="social social-v2">
+                                    <li><a href="#"><em class="fa fa-facebook" aria-hidden="true"></em></a></li>
+                                    <li><a href="#"><em class="fa fa-twitter" aria-hidden="true"></em></a></li>
+                                    <li><a href="#"><em class="fa fa-linkedin" aria-hidden="true"></em></a></li>
+                                    <li><a href="#"><em class="fa fa-whatsapp" aria-hidden="true"></em></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Widget -->
+                    </div>
+                </div>
+                <!-- Widget Row -->
+            </div>
+        </div>
+    </div>
+    <!-- End Footer Widget -->
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12" style="text-align: center;">
+                    <p>Copyright © LIC Insurance 2018. All Rights Reserved. Designed & Developed by <a href="https://www.jmbwebsoft.com/">JMB Websoft Pvt Ltd</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright -->
+    <!-- Preloader !active please if you want -->
+    <!-- <div id="preloader"><div id="status">&nbsp;</div></div> -->
+    <!-- Preloader End -->
+    <!-- JavaScript Bundle -->
+    <script src="js/jquery.bundle.js"></script>
+    <!-- Theme Script init() -->
+    <script src="js/script.js"></script>
+    <!-- End script -->
+</body>
+</html>
